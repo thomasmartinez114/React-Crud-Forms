@@ -16,13 +16,13 @@ app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get('/', (req, res) => {
-  const sqlInsert =
-    "INSERT INTO gnie_update_request (date, article_number, jurisdiction, description) VALUES ('2023-07-03', '111', 'Rhode Island', 'No Description')";
-  db.query(sqlInsert, (err, result) => {
-    console.log('error', err);
-    console.log('result', result);
-    res.send('Hello Express');
-  });
+  //   const sqlInsert =
+  //     "INSERT INTO gnie_update_request (date, article_number, jurisdiction, description) VALUES ('2023-07-03', '111', 'Rhode Island', 'No Description')";
+  //   db.query(sqlInsert, (err, result) => {
+  //     console.log('error', err);
+  //     console.log('result', result);
+  //     res.send('Hello Express');
+  //   });
 });
 
 app.listen(5000, () => {
