@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
-const mysql = require('mysql2');
+const mysql = require('mysql');
 const cors = require('cors'); // used to access backend API in our React Front-end
 
 const db = mysql.createPool({
