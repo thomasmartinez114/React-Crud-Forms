@@ -3,7 +3,7 @@ Installations:
 body-parser
 cors
 express
-mysql2
+mysql
 nodemon
 
 #Client
