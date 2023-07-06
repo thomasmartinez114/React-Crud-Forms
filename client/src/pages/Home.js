@@ -10,7 +10,7 @@ const Home = () => {
   const loadData = async () => {
     try {
       const response = await axios.get(
-        'http://localhost:5000/api/gnie_update_request'
+        'http://localhost:5000/api/gnie/updateRequests'
       );
       setData(response.data);
     } catch (err) {
@@ -24,6 +24,9 @@ const Home = () => {
 
   return (
     <div style={{ marginTop: '150px' }}>
+      <Link to='/addContact'>
+        <button className='btn btn-contact'>Add Contact</button>
+      </Link>
       <table className='styled-table'>
         <thead>
           <tr>

@@ -15,17 +15,17 @@ app.use(cors());
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.get('/api/gnie_update_request', (req, res) => {
+app.get('/api/gnie/updateRequests', (req, res) => {
   const sqlGet = 'SELECT * FROM gnie_update_request;';
   db.query(sqlGet, (error, result) => {
     res.send(result);
   });
 });
 
-app.post('/api/gnie_update_request', (req, res) => {
+app.post('/api/gnie/updateRequests', (req, res) => {
   const { date, articleNumber, jurisdiction, description } = req.body;
   const sqlInsert =
-    'INSERT INTO gnie_update_request (date, article_number, jurisdiction, description) VALUES (?, ?, ?, ?)';
+    'INSERT INTO gnie_update_request (date, articleNumber, jurisdiction, description) VALUES (?, ?, ?, ?)';
   db.query(
     sqlInsert,
     [date, articleNumber, jurisdiction, description],
