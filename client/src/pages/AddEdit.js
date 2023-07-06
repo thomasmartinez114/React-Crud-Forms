@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useHistory, useParams, Link } from 'react-router-dom';
+import { useNavigate, useParams, Link } from 'react-router-dom';
 import './AddEdit.css';
 import axios from 'axios';
 import { toast } from 'react-toastify';
@@ -16,8 +16,31 @@ const AddEdit = () => {
 
   const { date, articleNumber, jurisdiction, description } = state;
 
+  const navigate = useNavigate();
+
   const handleSubmit = e => {
     e.preventDefault();
+    if (!date || !articleNumber || !jurisdiction) {
+      toast.error('Please provide value into each input field');
+    } else {
+      axios
+        .post('http://localhost:5000/api/gnie/updateRequests/post', {
+          date,
+          articleNumber,
+          jurisdiction,
+          description,
+        })
+        .then(() => {
+          setState({
+            date: '',
+            articleNumber: '',
+            jurisdiction: '',
+            description: '',
+          });
+        })
+        .catch(err => toast.error(err.response.data));
+      setTimeout(() => navigate('/'), 500);
+    }
   };
 
   const handleInputChange = e => {
