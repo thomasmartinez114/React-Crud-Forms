@@ -64,7 +64,7 @@ const AddEdit = () => {
           type='text'
           id='date'
           name='date'
-          placeholder='Enter Date'
+          placeholder='Enter yyyy/mm/dd'
           value={date}
           onChange={handleInputChange}
         />
